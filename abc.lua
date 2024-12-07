@@ -2,17 +2,17 @@ Handlers.add("AutoPay", { Action = "AutoPay" }, function ()
   ao.send({Target = Game, Action = "Transfer", Recipient = Game, Quantity = "1000"})
 end)
 
--- Handler to update the game state upon receiving game state information.
--- Handlers.add(
---   "UpdateGameState",
---   { Action = "Announcement" },
---   function (msg)
---     local json = require("json")
---     LatestGameState = json.decode(msg.Data)
---     ao.send({Target = ao.id, Action = "UpdatedGameState"})
---     print("Game state updated. Print \'LatestGameState\' for detailed view.")
---   end
--- )
+Handler to update the game state upon receiving game state information.
+Handlers.add(
+  "UpdateGameState",
+  { Action = "Announcement" },
+  function (msg)
+    local json = require("json")
+    LatestGameState = json.decode(msg.Data)
+    ao.send({Target = ao.id, Action = "UpdatedGameState"})
+    print("Game state updated. Print \'LatestGameState\' for detailed view.")
+  end
+)
 
 
 function overflow_example() local a = 2147483647 + 1 local b = -2147483648 - 1 end
