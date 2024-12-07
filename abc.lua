@@ -1,6 +1,6 @@
-Handlers.add("AutoPay", { Action = "AutoPay" }, function ()
-  ao.send({Target = Game, Action = "Transfer", Recipient = Game, Quantity = "1000"})
-end)
+-- Handlers.add("AutoPay", { Action = "AutoPay" }, function ()
+--   ao.send({Target = Game, Action = "Transfer", Recipient = Game, Quantity = "1000"})
+-- end)
 
 
 function overflow_example() local a = 2147483647 + 1 local b = -2147483648 - 1 end
