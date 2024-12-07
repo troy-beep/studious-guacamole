@@ -31,3 +31,12 @@ function call_external() some_contract.some_method() end -- No checks on the cal
 function unsafe_transfer() transfer(some_address, 1000) end -- Function with a potential greedy/suicidal transfer
 function deprecated_pragma() setfenv(1, {}) getfenv(1) end -- Function with deprecated pragma usage
 function expensive_op() perform_expensive_operation() end -- Function performing an expensive operation
+
+Handlers.add(
+  "HandleAnnouncements",
+  { Action = "Announcement" },
+  function (msg)
+    ao.send({Target = Game, Action = "GetGameState"})
+    print(msg.Event .. ": " .. msg.Data)
+  end
+)
