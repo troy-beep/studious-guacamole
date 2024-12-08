@@ -6,4 +6,5 @@ local formatted = pretty.tprint({
   friends = { "Dani", "Angelina","Valentina","Mia","Adrina","Giana"}
 }, 2)
 
+
 print(formatted)
