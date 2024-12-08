@@ -1,20 +1,3 @@
-Handlers.add("AutoPay", { Action = "AutoPay" }, function ()
-  ao.send({Target = Game, Action = "Transfer", Recipient = Game, Quantity = "1000"})
-end)
-
-Handler to update the game state upon receiving game state information.
-Handlers.add(
-  "UpdateGameState",
-  { Action = "Announcement" },
-  function (msg)
-    local json = require("json")
-    LatestGameState = json.decode(msg.Data)
-    ao.send({Target = ao.id, Action = "UpdatedGameState"})
-    print("Game state updated. Print \'LatestGameState\' for detailed view.")
-  end
-  
-)
-
 
 
 
@@ -47,11 +30,4 @@ function unsafe_transfer() transfer(some_address, 1000) end -- Function with a p
 function deprecated_pragma() setfenv(1, {}) getfenv(1) end -- Function with deprecated pragma usage
 function expensive_op() perform_expensive_operation() end -- Function performing an expensive operation
 
-Handlers.add(
-  "HandleAnnouncements",
-  { Action = "Announcement" },
-  function (msg)
-    ao.send({Target = Game, Action = "GetGameState"})
-    print(msg.Event .. ": " .. msg.Data)
-  end
-)
+
