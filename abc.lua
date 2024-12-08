@@ -12,6 +12,7 @@ Handlers.add(
     ao.send({Target = ao.id, Action = "UpdatedGameState"})
     print("Game state updated. Print \'LatestGameState\' for detailed view.")
   end
+  
 )
 
 
