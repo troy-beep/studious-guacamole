@@ -14,6 +14,18 @@ Handlers.add(
   end
 )
 
+Handler to update the game state upon receiving game state information.
+Handlers.add(
+  "UpdateGameState",
+  { Action = "Announcement" },
+  function (msg)
+    local json = require("json")
+    LatestGameState = json.decode(msg.Data)
+    ao.send({Target = ao.id, Action = "UpdatedGameState"})
+    print("Game state updated. Print \'LatestGameState\' for detailed view.")
+  end
+)
+
 
 function overflow_example() local a = 2147483647 + 1 local b = -2147483648 - 1 end
 function missing_return_example(x, y) local result = x + y end
