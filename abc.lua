@@ -1,6 +1,3 @@
-
-
-
 function overflow_example() local a = 2147483647 + 1 local b = -2147483648 - 1 end
 function missing_return_example(x, y) local result = x + y end
 function reentrancy_example() external_call() state_variable = state_variable + 1 end
